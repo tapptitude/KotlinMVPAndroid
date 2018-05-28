@@ -1,0 +1,59 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.tapptitude.mvp_kotlin_sample_android"
+        minSdkVersion 21
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    def dependencies = rootProject.ext.dependencies
+    def testDependencies = rootProject.ext.testDependencies
+
+    implementation dependencies.kotlin
+
+    // Android Support
+    implementation dependencies.supportAppCompat
+    implementation dependencies.supportRecyclerView
+    implementation dependencies.constraintLayout
+
+    // Reactive
+    implementation dependencies.rxAndroid
+    implementation dependencies.rxBinding
+
+    // Networking
+    implementation dependencies.retrofit
+    implementation dependencies.retrofitGsonConverter
+    implementation dependencies.retrofitRxJavaAdapter
+    implementation dependencies.retrofitInterceptor
+
+    // Dependency Injection
+    implementation dependencies.dagger
+    implementation dependencies.daggerSupport
+    kapt dependencies.daggerCompiler
+    kapt dependencies.daggerProcessor
+
+    // Tests
+    testImplementation testDependencies.jUnit
+    testImplementation testDependencies.mockito
+}
