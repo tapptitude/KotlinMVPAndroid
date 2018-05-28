@@ -4,4 +4,4 @@ import com.google.gson.annotations.SerializedName
 
 data class DateTime(@SerializedName("time") val time: String,
                     @SerializedName("date") val date: String,
-                    @SerializedName("millis") val millis: Long)
+                    @SerializedName("milliseconds_since_epoch") val millis: Long)

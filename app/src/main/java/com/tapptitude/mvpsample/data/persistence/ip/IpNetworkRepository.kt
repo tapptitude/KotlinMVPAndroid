@@ -7,7 +7,7 @@ import io.reactivex.schedulers.Schedulers
 
 class IpNetworkRepository(private val ipApi: IpApi) : IpRepository {
 
-    fun loadIpAddress(): Observable<IpAddress> {
+    override fun loadIpAddress(): Observable<IpAddress> {
         return ipApi.getIpAddress()
                 .subscribeOn(Schedulers.io())
     }
