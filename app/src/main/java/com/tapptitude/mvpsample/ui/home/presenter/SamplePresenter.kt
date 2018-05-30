@@ -12,6 +12,6 @@ class SamplePresenter @Inject constructor(private val repository: DateTimeReposi
     fun loadDateTime() {
         repository.loadDateTime()
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(SelfDisposingObserver(onNextListener = { view?.onDateTimeLoaded(it) }))
+                .subscribe(SelfDisposingObserver(onSuccessAction = { view?.onDateTimeLoaded(it) }))
     }
 }

@@ -1,6 +1,5 @@
 package com.tapptitude.mvpsample.ui.common
 
-import io.reactivex.Observable
 import io.reactivex.Observer
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
@@ -41,8 +40,8 @@ abstract class BasePresenter<V : BaseView> {
      * An observer that disposes itself on [unbind]
      * @param D
      */
-    protected open inner class SelfDisposingObserver<D>(private inline val onNextListener: (D) -> Unit = {},
-                                                        private inline val onErrorListener: (Throwable) -> Unit = {})
+    protected open inner class SelfDisposingObserver<D>(private inline val onSuccessAction: ((D) -> Unit)? = null,
+                                                        private inline val onErrorAction: ((Throwable) -> Unit)? = null)
         : Observer<D> {
 
         /**
@@ -61,11 +60,11 @@ abstract class BasePresenter<V : BaseView> {
         }
 
         override fun onNext(t: D) {
-            onNextListener.invoke(t)
+            onSuccessAction?.invoke(t)
         }
 
         override fun onError(e: Throwable) {
-            onErrorListener.invoke(e)
+            onErrorAction?.invoke(e)
         }
     }
 }
