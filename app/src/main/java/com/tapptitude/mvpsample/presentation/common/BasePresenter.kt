@@ -40,8 +40,8 @@ abstract class BasePresenter<V : BaseView> {
      * An observer that disposes itself on [unbind]
      * @param D
      */
-    protected open inner class SelfDisposingObserver<D>(private inline val onSuccessAction: ((D) -> Unit)? = null,
-                                                        private inline val onErrorAction: ((Throwable) -> Unit)? = null)
+    protected open inner class SelfDisposingObserver<D>(private inline val onErrorAction: ((Throwable) -> Unit)? = null,
+                                                        private inline val onSuccessAction: ((D) -> Unit)? = null)
         : Observer<D> {
 
         /**
