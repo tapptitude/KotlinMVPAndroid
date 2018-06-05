@@ -1,4 +1,4 @@
-package com.tapptitude.mvpsample.ui.common
+package com.tapptitude.mvpsample.presentation.common
 
 import io.reactivex.Observer
 import io.reactivex.disposables.CompositeDisposable

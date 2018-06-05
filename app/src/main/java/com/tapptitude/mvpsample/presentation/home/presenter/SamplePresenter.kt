@@ -1,8 +1,8 @@
-package com.tapptitude.mvpsample.ui.home.presenter
+package com.tapptitude.mvpsample.presentation.home.presenter
 
 import com.tapptitude.mvpsample.data.persistence.datetime.DateTimeRepository
-import com.tapptitude.mvpsample.ui.common.BasePresenter
-import com.tapptitude.mvpsample.ui.home.view.SampleView
+import com.tapptitude.mvpsample.presentation.common.BasePresenter
+import com.tapptitude.mvpsample.presentation.home.view.SampleView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import javax.inject.Inject
 

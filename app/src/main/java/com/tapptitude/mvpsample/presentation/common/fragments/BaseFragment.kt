@@ -1,9 +1,9 @@
-package com.tapptitude.mvpsample.ui.common.fragments
+package com.tapptitude.mvpsample.presentation.common.fragments
 
 import android.content.Context
 import android.support.v4.app.Fragment
-import com.tapptitude.mvpsample.ui.common.BasePresenter
-import com.tapptitude.mvpsample.ui.common.BaseView
+import com.tapptitude.mvpsample.presentation.common.BasePresenter
+import com.tapptitude.mvpsample.presentation.common.BaseView
 import dagger.android.support.AndroidSupportInjection
 
 abstract class BaseFragment<V : BaseView> : Fragment(), BaseView {

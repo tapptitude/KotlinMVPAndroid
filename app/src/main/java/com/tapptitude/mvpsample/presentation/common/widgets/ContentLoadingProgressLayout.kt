@@ -1,4 +1,4 @@
-package com.tapptitude.mvpsample.ui.common.widgets
+package com.tapptitude.mvpsample.presentation.common.widgets
 
 import android.content.Context
 import android.graphics.Color

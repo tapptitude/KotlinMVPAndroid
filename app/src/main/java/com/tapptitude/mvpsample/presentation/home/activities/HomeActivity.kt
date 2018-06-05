@@ -1,13 +1,13 @@
-package com.tapptitude.mvpsample.ui.home.activities
+package com.tapptitude.mvpsample.presentation.home.activities
 
 import android.os.Bundle
 import android.widget.Toast
 import com.tapptitude.mvpsample.R
-import com.tapptitude.mvpsample.ui.common.BasePresenter
-import com.tapptitude.mvpsample.ui.common.activities.BaseActivity
-import com.tapptitude.mvpsample.ui.home.fragments.SampleFragment
-import com.tapptitude.mvpsample.ui.home.presenter.HomePresenter
-import com.tapptitude.mvpsample.ui.home.view.HomeView
+import com.tapptitude.mvpsample.presentation.common.BasePresenter
+import com.tapptitude.mvpsample.presentation.common.activities.BaseActivity
+import com.tapptitude.mvpsample.presentation.home.fragments.SampleFragment
+import com.tapptitude.mvpsample.presentation.home.presenter.HomePresenter
+import com.tapptitude.mvpsample.presentation.home.view.HomeView
 import kotlinx.android.synthetic.main.activity_home.*
 import javax.inject.Inject
 

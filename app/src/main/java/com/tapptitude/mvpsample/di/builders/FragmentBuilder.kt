@@ -1,7 +1,7 @@
 package com.tapptitude.mvpsample.di.builders
 
 import com.tapptitude.mvpsample.di.modules.AppModule
-import com.tapptitude.mvpsample.ui.home.fragments.SampleFragment
+import com.tapptitude.mvpsample.presentation.home.fragments.SampleFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

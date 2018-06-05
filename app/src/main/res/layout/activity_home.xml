@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.home.activities.HomeActivity">
+    tools:context=".presentation.home.activities.HomeActivity">
 
     <TextView
         android:id="@+id/titleTV"

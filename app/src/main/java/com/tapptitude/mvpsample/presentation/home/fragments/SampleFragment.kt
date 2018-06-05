@@ -1,4 +1,4 @@
-package com.tapptitude.mvpsample.ui.home.fragments
+package com.tapptitude.mvpsample.presentation.home.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.tapptitude.mvpsample.R
 import com.tapptitude.mvpsample.data.network.models.DateTime
-import com.tapptitude.mvpsample.ui.common.BasePresenter
-import com.tapptitude.mvpsample.ui.common.fragments.BaseFragment
-import com.tapptitude.mvpsample.ui.home.presenter.SamplePresenter
-import com.tapptitude.mvpsample.ui.home.view.SampleView
+import com.tapptitude.mvpsample.presentation.common.BasePresenter
+import com.tapptitude.mvpsample.presentation.common.fragments.BaseFragment
+import com.tapptitude.mvpsample.presentation.home.presenter.SamplePresenter
+import com.tapptitude.mvpsample.presentation.home.view.SampleView
 import kotlinx.android.synthetic.main.fragment_sample.*
 import javax.inject.Inject
 

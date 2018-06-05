@@ -1,7 +1,7 @@
-package com.tapptitude.mvpsample.ui.home.view
+package com.tapptitude.mvpsample.presentation.home.view
 
 import com.tapptitude.mvpsample.data.network.models.DateTime
-import com.tapptitude.mvpsample.ui.common.BaseView
+import com.tapptitude.mvpsample.presentation.common.BaseView
 
 interface SampleView: BaseView {
 
