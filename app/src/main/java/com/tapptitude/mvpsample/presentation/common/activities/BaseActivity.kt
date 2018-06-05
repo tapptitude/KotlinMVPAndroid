@@ -22,6 +22,11 @@ abstract class BaseActivity<V : BaseView> : AppCompatActivity(), HasSupportFragm
         attachPresenter()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        getPresenter().unbind()
+    }
+
     override fun supportFragmentInjector(): AndroidInjector<Fragment> {
         return childFragmentInjector
     }

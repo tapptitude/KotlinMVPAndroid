@@ -14,6 +14,11 @@ abstract class BaseFragment<V : BaseView> : Fragment(), BaseView {
         attachPresenter()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        getPresenter().unbind()
+    }
+
     @Suppress("UNCHECKED_CAST")
     private fun attachPresenter() {
         getPresenter().bind(this as V)
