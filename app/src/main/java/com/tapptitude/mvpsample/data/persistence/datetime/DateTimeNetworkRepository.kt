@@ -2,13 +2,16 @@ package com.tapptitude.mvpsample.data.persistence.datetime
 
 import com.tapptitude.mvpsample.data.network.DateTimeApi
 import com.tapptitude.mvpsample.data.network.models.DateTime
+import com.tapptitude.mvpsample.providers.SchedulerProvider
 import io.reactivex.Observable
-import io.reactivex.schedulers.Schedulers
 
-class DateTimeNetworkRepository(private val dateTimeApi: DateTimeApi) : DateTimeRepository {
+class DateTimeNetworkRepository(
+        private val dateTimeApi: DateTimeApi,
+        private val schedulerProvider: SchedulerProvider
+) : DateTimeRepository {
 
     override fun loadDateTime(): Observable<DateTime> {
         return dateTimeApi.getDateTime()
-                .subscribeOn(Schedulers.io())
+                .subscribeOn(schedulerProvider.io())
     }
 }

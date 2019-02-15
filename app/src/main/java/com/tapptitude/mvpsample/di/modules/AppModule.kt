@@ -4,6 +4,8 @@ import android.app.Application
 import android.content.Context
 import com.google.gson.Gson
 import com.tapptitude.mvpsample.preferance.UserSessionManager
+import com.tapptitude.mvpsample.providers.RuntimeSchedulerProvider
+import com.tapptitude.mvpsample.providers.SchedulerProvider
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -31,5 +33,11 @@ class AppModule {
     ): UserSessionManager {
         val sharedPrefs = context.applicationContext.getSharedPreferences(USER_PREFS, Context.MODE_PRIVATE)
         return UserSessionManager(gson, sharedPrefs)
+    }
+
+    @Provides
+    @Singleton
+    fun provideSchedulerProvider(): SchedulerProvider {
+        return RuntimeSchedulerProvider()
     }
 }

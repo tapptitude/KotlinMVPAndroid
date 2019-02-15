@@ -4,14 +4,17 @@ import com.tapptitude.mvpsample.data.network.models.IpAddress
 import com.tapptitude.mvpsample.data.persistence.ip.IpRepository
 import com.tapptitude.mvpsample.presentation.common.BasePresenter
 import com.tapptitude.mvpsample.presentation.home.view.HomeView
-import io.reactivex.android.schedulers.AndroidSchedulers
+import com.tapptitude.mvpsample.providers.SchedulerProvider
 import javax.inject.Inject
 
-class HomePresenter @Inject constructor(private val repository: IpRepository) : BasePresenter<HomeView>() {
+class HomePresenter @Inject constructor(
+        private val repository: IpRepository,
+        private val schedulerProvider: SchedulerProvider
+) : BasePresenter<HomeView>() {
 
     fun loadIpAddress() {
         repository.loadIpAddress()
-                .observeOn(AndroidSchedulers.mainThread())
+                .observeOn(schedulerProvider.mainThread())
                 .subscribe(object : SelfDisposingObserver<IpAddress>() {
                     override fun onNext(ipAddress: IpAddress) {
                         view?.onIpAddressLoaded(ipAddress.ip)
