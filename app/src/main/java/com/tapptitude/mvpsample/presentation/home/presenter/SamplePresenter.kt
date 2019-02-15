@@ -14,6 +14,10 @@ class SamplePresenter @Inject constructor(
     fun loadDateTime() {
         repository.loadDateTime()
                 .observeOn(schedulerProvider.mainThread())
-                .subscribe(SelfDisposingObserver(onSuccessAction = { view?.onDateTimeLoaded(it) }))
+                .subscribe(SelfDisposingObserver(onSuccessAction = {
+                    view?.onDateTimeLoaded(it)
+                }, onErrorAction = {
+                    view?.onDatetimeLoadingFailed(it.message)
+                }))
     }
 }

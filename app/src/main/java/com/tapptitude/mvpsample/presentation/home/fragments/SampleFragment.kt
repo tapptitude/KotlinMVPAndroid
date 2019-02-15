@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.tapptitude.mvpsample.R
 import com.tapptitude.mvpsample.data.network.models.DateTime
 import com.tapptitude.mvpsample.presentation.common.BasePresenter
@@ -33,5 +34,12 @@ class SampleFragment : BaseFragment<SampleView>(), SampleView {
     override fun onDateTimeLoaded(dateTime: DateTime) {
         timeTV.text = dateTime.time
         dateTV.text = dateTime.date
+    }
+
+    override fun onDatetimeLoadingFailed(error: String?) {
+        timeTV.visibility = View.GONE
+        dateTV.visibility = View.GONE
+
+        Toast.makeText(context, error, Toast.LENGTH_SHORT).show()
     }
 }
