@@ -8,6 +8,7 @@ apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 28
+    testOptions.unitTests.includeAndroidResources true
 
     defaultConfig {
         applicationId "com.tapptitude.mvp_kotlin_sample_android"
