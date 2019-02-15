@@ -6,10 +6,6 @@ import com.google.gson.Gson
 import com.tapptitude.mvpsample.data.model.User
 import javax.inject.Inject
 
-/**
- * @author Radu Dorin
- */
-
 private const val USER_DATA_KEY = "USER_DATA_KEY"
 private const val SESSION_TOKEN_KEY = "SESSION_TOKEN_KEY"
 private const val IP_INFO_KEY = "IP_INFO_KEY"

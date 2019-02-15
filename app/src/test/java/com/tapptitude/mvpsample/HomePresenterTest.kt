@@ -19,9 +19,6 @@ import org.junit.Test
 import org.mockito.Mock
 import org.mockito.junit.MockitoJUnit
 
-/**
- * @author Radu Dorin
- */
 class HomePresenterTest {
 
     @get:Rule

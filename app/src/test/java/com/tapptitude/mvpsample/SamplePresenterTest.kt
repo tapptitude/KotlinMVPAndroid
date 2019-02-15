@@ -17,9 +17,6 @@ import org.junit.Test
 import org.mockito.Mock
 import org.mockito.junit.MockitoJUnit
 
-/**
- * @author Radu Dorin
- */
 class SamplePresenterTest {
 
     @get:Rule
