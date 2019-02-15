@@ -12,6 +12,7 @@ import javax.inject.Inject
 
 private const val USER_DATA_KEY = "USER_DATA_KEY"
 private const val SESSION_TOKEN_KEY = "SESSION_TOKEN_KEY"
+private const val IP_INFO_KEY = "IP_INFO_KEY"
 
 class UserSessionManager @Inject constructor(
         private val gson: Gson,
@@ -34,6 +35,10 @@ class UserSessionManager @Inject constructor(
         userPreference.edit()
                 .putString(USER_DATA_KEY, stringUserData)
                 .apply()
+    }
+
+    fun saveIp(ip: String) {
+        userPreference.edit().putString(IP_INFO_KEY, ip).apply()
     }
 
     fun isUserLoggedIn(): Boolean {
