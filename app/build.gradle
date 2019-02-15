@@ -7,15 +7,17 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
+
     defaultConfig {
         applicationId "com.tapptitude.mvp_kotlin_sample_android"
         minSdkVersion 21
-        targetSdkVersion 27
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -24,36 +26,61 @@ android {
     }
 }
 
+ext {
+    // Support
+    supportVersion = '28.0.0'
+    // End Support
+
+    androidSupportTestVersion = '1.0.2'
+    retrofitVersion = '2.4.0'
+    daggerVersion = '2.16'
+    rxAndroidVersion = '2.0.2'
+    rxBindingKotlinVersion = '2.1.1'
+    loggingInterceptorVersion = '3.11.0'
+    jUnitVersion = '4.12'
+    mockitoKotlinVersion = '1.5.0'
+    mockitoInlineVersion = '2.13.0'
+    glideVersion = '4.8.0'
+    robolectricVersion = '4.0'
+    robolectricShadowsSupportVersion = '3.3.2'
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    def dependencies = rootProject.ext.dependencies
-    def testDependencies = rootProject.ext.testDependencies
-
-    implementation dependencies.kotlin
-
     // Android Support
-    implementation dependencies.supportAppCompat
-    implementation dependencies.supportRecyclerView
-    implementation dependencies.constraintLayout
+    implementation "com.android.support:appcompat-v7:$supportVersion"
+    implementation "com.android.support:support-v4:$supportVersion"
+    implementation "com.android.support:recyclerview-v7:$supportVersion"
+    implementation "com.android.support:cardview-v7:$supportVersion"
+    implementation "com.android.support:design:$supportVersion"
 
     // Reactive
-    implementation dependencies.rxAndroid
-    implementation dependencies.rxBinding
+    implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
+    implementation "com.jakewharton.rxbinding2:rxbinding-kotlin:$rxBindingKotlinVersion"
 
     // Networking
-    implementation dependencies.retrofit
-    implementation dependencies.retrofitGsonConverter
-    implementation dependencies.retrofitRxJavaAdapter
-    implementation dependencies.retrofitInterceptor
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$loggingInterceptorVersion"
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glideVersion"
 
     // Dependency Injection
-    implementation dependencies.dagger
-    implementation dependencies.daggerSupport
-    kapt dependencies.daggerCompiler
-    kapt dependencies.daggerProcessor
+    implementation "com.google.dagger:dagger:$daggerVersion"
+    implementation "com.google.dagger:dagger-android-support:$daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
 
     // Tests
-    testImplementation testDependencies.jUnit
-    testImplementation testDependencies.mockito
+    testImplementation "junit:junit:$jUnitVersion"
+    testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion"
+    testImplementation "com.nhaarman:mockito-kotlin-kt1.1:$mockitoKotlinVersion"
+    testImplementation "org.mockito:mockito-core:$mockitoInlineVersion"
+    testImplementation "org.mockito:mockito-inline:$mockitoInlineVersion"
+    androidTestImplementation "com.android.support.test:runner:$androidSupportTestVersion"
+    androidTestImplementation "com.android.support.test:rules:$androidSupportTestVersion"
+    testImplementation "org.robolectric:robolectric:$robolectricVersion"
+    testImplementation "org.robolectric:shadows-support-v4:$robolectricShadowsSupportVersion"
 }
