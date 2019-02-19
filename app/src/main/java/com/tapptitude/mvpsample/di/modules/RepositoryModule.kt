@@ -6,6 +6,7 @@ import com.tapptitude.mvpsample.data.persistence.datetime.DateTimeNetworkReposit
 import com.tapptitude.mvpsample.data.persistence.datetime.DateTimeRepository
 import com.tapptitude.mvpsample.data.persistence.ip.IpNetworkRepository
 import com.tapptitude.mvpsample.data.persistence.ip.IpRepository
+import com.tapptitude.mvpsample.providers.SchedulerProvider
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -15,13 +16,19 @@ class RepositoryModule {
 
     @Provides
     @Singleton
-    internal fun provideDateTimeRepository(dateTimeApi: DateTimeApi): DateTimeRepository {
-        return DateTimeNetworkRepository(dateTimeApi)
+    internal fun provideDateTimeRepository(
+            dateTimeApi: DateTimeApi,
+            schedulerProvider: SchedulerProvider
+    ): DateTimeRepository {
+        return DateTimeNetworkRepository(dateTimeApi, schedulerProvider)
     }
 
     @Provides
     @Singleton
-    internal fun provideIpRepository(ipApi: IpApi): IpRepository {
-        return IpNetworkRepository(ipApi)
+    internal fun provideIpRepository(
+            ipApi: IpApi,
+            schedulerProvider: SchedulerProvider
+    ): IpRepository {
+        return IpNetworkRepository(ipApi, schedulerProvider)
     }
 }

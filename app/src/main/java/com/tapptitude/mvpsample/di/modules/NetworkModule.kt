@@ -16,6 +16,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
 import javax.inject.Singleton
 
+private const val CACHE_MAX_SIZE = (10 * 1024 * 1024).toLong()
+
 @Module
 class NetworkModule {
 
@@ -39,10 +41,10 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideRetrofit(client: OkHttpClient): Retrofit.Builder {
+    fun provideRetrofit(client: OkHttpClient, gson: Gson): Retrofit.Builder {
         return Retrofit.Builder()
                 .client(client)
-                .addConverterFactory(GsonConverterFactory.create(Gson()))
+                .addConverterFactory(GsonConverterFactory.create(gson))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
     }
 
@@ -58,7 +60,7 @@ class NetworkModule {
         }
 
         val cacheDir = File(application.cacheDir.absolutePath, application.packageName)
-        okHttpBuilder.cache(okhttp3.Cache(cacheDir, (10 * 1024 * 1024).toLong()))
+        okHttpBuilder.cache(okhttp3.Cache(cacheDir, CACHE_MAX_SIZE))
         return okHttpBuilder.build()
     }
 
